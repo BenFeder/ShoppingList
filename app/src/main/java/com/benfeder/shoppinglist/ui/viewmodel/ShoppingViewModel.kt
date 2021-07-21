@@ -92,6 +92,9 @@ class ShoppingViewModel(
         )
     )
 
+    // List to add chosen groceries to when clicked on grocery list
+    private var chosenList = mutableListOf<Grocery>()
+
     val totalAmount = groceryList.sumByDouble { it.price }
 
     val groceries = shoppingRepository.getAllGroceries().asLiveData()
@@ -107,10 +110,11 @@ class ShoppingViewModel(
         }
     }
 
-    fun deleteGrocery(grocery: Grocery) {
+    fun addGrocery(grocery: Grocery) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                shoppingRepository.deleteGrocery(grocery)
+                shoppingRepository.addGrocery(grocery)
+                chosenList.add(grocery)
             } catch (ex: Exception) {
                 Log.d(TAG, ex.toString())
             }

@@ -53,7 +53,7 @@ class ShoppingFragment : Fragment() {
     }
 
     private fun onItemClick(grocery: Grocery) {
-        shoppingViewModel.deleteGrocery(grocery)
+        shoppingViewModel.addGrocery(grocery)
     }
 
     override fun onDestroyView() {

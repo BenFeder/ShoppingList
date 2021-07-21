@@ -19,7 +19,7 @@ class ShoppingRepository(private val application: Application) {
 
     suspend fun deleteAllGroceries() = shoppingDao.deleteAllGroceries()
 
-    suspend fun deleteGrocery(grocery: Grocery) = shoppingDao.deleteGrocery(grocery)
+    suspend fun addGrocery(grocery: Grocery) = shoppingDao.addGrocery(grocery)
 
     suspend fun updateGrocery(grocery: Grocery) = shoppingDao.updateGrocery(grocery)
 }

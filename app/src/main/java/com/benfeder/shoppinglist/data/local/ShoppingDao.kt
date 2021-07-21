@@ -18,8 +18,8 @@ abstract class ShoppingDao {
     @Query("DELETE FROM groceries")
     abstract suspend fun deleteAllGroceries()
 
-    @Delete
-    abstract suspend fun deleteGrocery(grocery: Grocery)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract suspend fun addGrocery(grocery: Grocery)
 
     @Update
     abstract suspend fun updateGrocery(grocery: Grocery)
