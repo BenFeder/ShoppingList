@@ -95,6 +95,7 @@ class ShoppingViewModel(
     // List to add chosen groceries to when clicked on grocery list
     private var chosenList = mutableListOf<Grocery>()
 
+    // Adds price of all groceries together to get total
     val totalAmount = groceryList.sumByDouble { it.price }
 
     val groceries = shoppingRepository.getAllGroceries().asLiveData()
